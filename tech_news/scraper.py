@@ -1,3 +1,4 @@
+import parsel
 import requests
 import time
 
@@ -19,10 +20,15 @@ def fetch(url: str) -> str:
         time.sleep(1)
 
 
-# Requisito 2
 def scrape_updates(html_content):
-    """Seu código deve vir aqui"""
-    raise NotImplementedError
+    # Criando um objeto Selector com o conteúdo HTML
+    selector = parsel.Selector(html_content)
+
+    # Selecionando os elementos que contêm os links para as notícias nos cards
+    news_links = selector.css('.entry-title > a::attr(href)').getall()
+
+    # Retornando a lista de URLs das notícias
+    return news_links
 
 
 # Requisito 3
@@ -41,4 +47,3 @@ def scrape_news(html_content):
 def get_tech_news(amount):
     """Seu código deve vir aqui"""
     raise NotImplementedError
-# nada
