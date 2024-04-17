@@ -21,20 +21,19 @@ def fetch(url: str) -> str:
 
 
 def scrape_updates(html_content):
-    # Criando um objeto Selector com o conteúdo HTML
-    selector = parsel.Selector(html_content)
 
-    # Selecionando os elementos que contêm os links para as notícias nos cards
+    selector = parsel.Selector(html_content)
     news_links = selector.css('.entry-title > a::attr(href)').getall()
 
-    # Retornando a lista de URLs das notícias
     return news_links
 
 
-# Requisito 3
 def scrape_next_page_link(html_content):
-    """Seu código deve vir aqui"""
-    raise NotImplementedError
+
+    selector = parsel.Selector(html_content)
+    next_page_link = selector.css('.next.page-numbers::attr(href)').get()
+
+    return next_page_link
 
 
 # Requisito 4
