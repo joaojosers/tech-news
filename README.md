@@ -9,9 +9,7 @@
 
 
 ## Tecnologias usadas
-
-### Back-end:
-- Desenvolvido usando: Python
+- Desenvolvido usando: Python e MongoDB
 ## Crie o ambiente virtual para o projeto
 ```
 python3 -m venv .venv && source .venv/bin/activate
